@@ -158,7 +158,6 @@ const Slider: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* ✅ Start video only when ready */}
       {canPlay && <span className="sr-only">Video activated</span>}
     </section>
   );
