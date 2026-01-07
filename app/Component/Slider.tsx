@@ -49,14 +49,11 @@ const Slider: React.FC = () => {
 
     // best-effort play (autoplay policies)
     const p = v.play();
-    if (p && typeof p.catch === "function") p.catch(() => { });
+    if (p && typeof p.catch === "function") p.catch(() => {});
   }, [canPlay]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative h-[130vh] w-full overflow-hidden"
-    >
+    <section ref={sectionRef} className="relative h-[130vh] w-full overflow-hidden">
       {/* Background video (optimized) */}
       <video
         ref={videoRef}
@@ -67,7 +64,7 @@ const Slider: React.FC = () => {
         playsInline
         preload="metadata"
         poster="/fallback.jpg"
-        // @ts-ignore - supported by browsers; TS may complain depending on types
+        // @ts-expect-error - React typings may not include fetchPriority on <video> in some versions
         fetchPriority="high"
       >
         {/* ✅ Use /public path like: /backgroundVideo.mp4 */}
@@ -122,22 +119,19 @@ const Slider: React.FC = () => {
             style={{ fontFamily: "Valty DEMO" }}
           >
             <TypeAnimation
-              sequence={[
-                "From Concept To Launch,\nWe Deliver Software\nThat Works."
-              ]}
+              sequence={typeSequence as unknown as any}
               speed={12}
               wrapper="span"
               cursor={false}
               repeat={0}
             />
-
           </h1>
 
           <p className="max-w-xl text-sm sm:text-base text-gray-200">
             Your Partner in smart, Reliable Software,
           </p>
 
-          {/* Social Icons (no fontawesome dependency) */}
+          {/* Social Icons */}
           <div className="flex justify-center items-center gap-4 text-gray-300 text-2xl">
             <FaXTwitter className="hover:text-gray-100 transition" />
             <span className="text-gray-600">|</span>
@@ -165,9 +159,7 @@ const Slider: React.FC = () => {
       </motion.div>
 
       {/* ✅ Start video only when ready */}
-      {canPlay && (
-        <span className="sr-only">Video activated</span>
-      )}
+      {canPlay && <span className="sr-only">Video activated</span>}
     </section>
   );
 };
