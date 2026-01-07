@@ -11,7 +11,7 @@ const libreBaskervilleItalic = Libre_Baskerville({
 });
 
 export const metadata: Metadata = {
-  title: "Incology Systems",
+  title: "Incology Systems | Software and Marketing Agency",
 };
 
 export default function RootLayout({
