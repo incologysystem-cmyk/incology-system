@@ -28,7 +28,6 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Close sidebar on ESC + lock body scroll
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setIsSidebarOpen(false);
@@ -55,7 +54,6 @@ export default function Navbar() {
   return (
     <nav className="text-white px-4 py-6 relative z-[100]">
       <div className="container mx-auto flex items-center justify-between">
-        {/* Logo */}
         <Link href="/" onClick={() => setIsSidebarOpen(false)} className="z-50">
           <img width={180} src="./incologo.png" alt="Logo" className="hover:opacity-80 transition-opacity" />
         </Link>
