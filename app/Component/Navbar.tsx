@@ -58,13 +58,11 @@ export default function Navbar() {
           <img width={180} src="./incologo.png" alt="Logo" className="hover:opacity-80 transition-opacity" />
         </Link>
 
-        {/* Desktop Menu - Pill Design */}
         <ul className="hidden lg:flex space-x-2 border border-white/10 bg-black/40 backdrop-blur-xl shadow-2xl px-8 rounded-full py-2.5 items-center">
           <Link href="/">
             <li className="hover:text-gray-300 transition-colors px-3 py-1 cursor-pointer text-sm font-medium">Home</li>
           </Link>
 
-          {/* Portfolio Dropdown (Desktop) */}
           <li 
             ref={portfolioDesktopRef} 
             className="relative group py-1" // Added padding to increase hover area
